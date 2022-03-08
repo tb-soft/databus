@@ -1,12 +1,14 @@
 repositories {
   // for open source we cannot user internal repo
   // so we add few open source ones
-  mavenCentral()
-  maven {
-	url "https://repo.fusesource.com/maven2"
+  maven { 
+    url "https://repo.maven.apache.org/maven2" 
   }
   maven {
-	url "https://maven.restlet.org"
+	  url "https://repo.fusesource.com/maven2"
+  }
+  maven {
+    url "https://maven.restlet.org"
   }
 
   // local repo for libs we have to ship with     
