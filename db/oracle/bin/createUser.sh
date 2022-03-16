@@ -35,6 +35,12 @@ TBS=$4
 #DBDIR
 DBDIR=$5
 
+#LoginUser
+LOGINUSER=$6
+
+#LoginPassword
+LOGINPASSWORD=$7
+
 # Default Log Dir
 DEFAULT_LOG_DIR=logs
 
@@ -48,7 +54,7 @@ TBS_LC=`echo $TBS | tr '[A-Z]' '[a-z]'`
 TBS_UC=`echo $TBS | tr '[a-z]' '[A-Z]'`
 
 echo "INFO: creating user and tablespace"
-sqlplus system/manager\@${DBNAME} as sysdba << __EOF__
+sqlplus ${LOGINUSER}/${LOGINPASSWORD}\@${DBNAME} as sysdba << __EOF__
 drop tablespace ${TBS_UC} including contents;
 drop tablespace ${TBS_UC}_IDX including contents;
 create tablespace ${TBS_UC} datafile '${DBDIR}/${TBS_LC}_01.dbf' size 50M reuse autoextend on next 50M maxsize unlimited extent management local uniform size 2M;
