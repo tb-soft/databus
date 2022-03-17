@@ -60,7 +60,7 @@ drop tablespace ${TBS_UC}_IDX including contents;
 create tablespace ${TBS_UC} datafile '${DBDIR}/${TBS_LC}_01.dbf' size 50M reuse autoextend on next 50M maxsize unlimited extent management local uniform size 2M;
 create tablespace ${TBS_UC}_IDX datafile '${DBDIR}/${TBS_LC}_idx_01.dbf' size 50M reuse autoextend on next 50M maxsize unlimited extent management local uniform size 2M;
 drop user ${USER} cascade;
-create user ${USER} identified by ${PASSWD} default tablespace ${TBS_UC} temporary tablespace temp1;
+create user ${USER} identified by ${PASSWD} default tablespace ${TBS_UC};
 grant create session, create table, create view, create sequence, create procedure, create trigger, create type, create job  to ${USER};
 grant query rewrite to ${USER};
 grant execute on dbms_alert to ${USER};
